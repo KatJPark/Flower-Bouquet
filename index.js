@@ -25,7 +25,6 @@ app.post("/submit", (req, res) => {
 app.get("/gallery", (req, res) => {
     // https://github.com/louischatriot/nedb#finding-documents
     db.find({}, function (err, docs) {
-        // console.log(docs)
         let obj = { data: docs }
         res.json(obj)
     })

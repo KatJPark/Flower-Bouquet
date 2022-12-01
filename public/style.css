@@ -1,6 +1,7 @@
 body {
-    background-color: black;
-    font-family: 'Roboto', sans-serif;
+    background-color: rgb(245,245,244);
+    font-family: 'Schoolbell', cursive;
+    color: black;
 }
 
 nav {
@@ -26,15 +27,9 @@ footer {
     align-items: center;
 }
 
-footer p {
-    color: rgb(225, 225, 190);
-    font-size: 25px;
-    font-weight: 700;
-}
-
 h1 {
-    color: white;
-    font-size: 60px;
+    color: black;
+    font-size: 70px;
 }
 
 nav h1 {
@@ -42,7 +37,7 @@ nav h1 {
 }
 
 p {
-    color: white;
+    color: black;
     font-size: 25px;
     font-weight: 200;
 }
@@ -73,14 +68,15 @@ nav p {
 }
 
 .button {
-    background-color: #dde9de;
+    background-color: rgb(245,245,244);
+    font-family: 'Schoolbell', cursive;
     border: none;
     color: rgb(0, 0, 0);
-    padding: 15px 32px;
-    text-align: center;
+    padding: 15px 10px;
+    text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
 }
@@ -109,4 +105,14 @@ nav p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.custom {
+    position: absolute;
+    left: 90%; 
+}
+
+#send {
+    font-family: 'Schoolbell', cursive;
+    font-size: 20px;
 }
