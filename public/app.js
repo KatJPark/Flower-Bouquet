@@ -24,6 +24,7 @@ let Flower23
 
 let flowerArray = []
 
+
 function preload () {
 	Flower1 = loadImage ("./flowers/Flower1.png")
 	// Flower2 = loadImage ("./flowers/Flower2.png")
@@ -99,7 +100,11 @@ button19.addEventListener("click", addFlower19);
 button22.addEventListener("click", addFlower22);
 button23.addEventListener("click", addFlower23);
 
-const container = document.querySelector("#canvas-container");
+const CurrMessage = document.querySelector(".message")
+const container = document.querySelector("#canvas-container")
+const next = document.querySelector(".next")
+const prev = document.querySelector(".prev")
+let messages = []
 
 function setup() {
 	console.log (image(Flower1, 0, 0))
@@ -197,19 +202,40 @@ submit.addEventListener("click", function () {
 			fetch("/gallery")
 				.then((response) => response.json())
 				.then((data) => {
-					const gallery = document.querySelector(".gallery");
+					const gallery = document.querySelector(".swipe");
 					const p1 = document.querySelector(".page1")
 					const p2 = document.querySelector(".page2")
 					p1.style.display = "none"
 					p2.style.display = "flex"
 					for (let i = 0; i < data.data.length; i++) {
-						const submission = document.createElement ("p")
-						submission.innerHTML = data.data[i].message
+						const d = document.createElement("div")
 						const imageElem = document.createElement("img")
+						const description = document.createElement("p")
+						messages.push(data.data[i].message)
+						description.innterHTML = data.data[i].message
 						imageElem.src = data.data[i].image
-						gallery.appendChild(imageElem)
-						gallery.appendChild(submission)
+						d.appendChild(imageElem)
+						d.appendChild(description)
+						gallery.appendChild(d)
 					}
+					CurrMessage.innerHTML = messages [0]
+					let currentIndex
+					function updateCurrentIndex() {
+						currentIndex = slider.currentIndex()
+						CurrMessage.innerHTML = messages[currentIndex]
+					}
+					let slider = simpleslider.getSlider({
+						paused: true,
+						onChangeEnd: updateCurrentIndex,
+					})
+
+					next.addEventListener("click", function () {
+						slider.next()
+					})
+					prev.addEventListener("click", function () {
+						slider.prev()
+					})
+
 				})
 		})
 })

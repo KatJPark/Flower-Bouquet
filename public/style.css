@@ -116,3 +116,36 @@ nav p {
     font-family: 'Schoolbell', cursive;
     font-size: 20px;
 }
+
+.swipe {
+    width: 70vw;
+    height: 70vh;
+    margin: 0;
+}
+
+.swipe div img {
+    width: 100%;
+}
+
+.message {
+    width: 100vw;
+    height: 2em;
+    color: black;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.nav {
+    width: 100vw;
+    margin: 20px 0px;
+}
+
+.nav div {
+    width: 5em;
+    text-align: center;
+    color: white;
+    background-color: red;
+    padding: 20px;
+    border-radius: 7px;
+    margin: 0px 70px;
+}
